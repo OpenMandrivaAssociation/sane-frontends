@@ -1,6 +1,6 @@
 %define name 	sane-frontends
 %define version 1.0.14
-%define release %mkrel 3
+%define release %mkrel 4
 %define beta    %nil
 #-beta1
 
@@ -12,11 +12,11 @@ Version:        %{version}
 Release:        %{release}
 Summary: 	Graphical frontend to SANE
 URL:       	http://www.mostang.com/sane/
-Source:    	ftp://ftp.mostang.com/pub/sane/sane-%version/%{name}-%{version}%{beta}.tar.bz2
+Source:    	ftp://ftp.sane-project.org/pub/sane/sane-frontends-%{version}/%{name}-%{version}%{beta}.tar.bz2
 Source1:	sane-frontends16.png
 Source2:	sane-frontends32.png
 Source3:	sane-frontends48.png
-License: 	GPL
+License: 	GPLv2+
 Group:		Graphics
 BuildRequires:	libgimp-devel >= 2.0
 Buildrequires:	libjpeg-devel 
@@ -37,7 +37,7 @@ standalone or as a gimp plugin. Also includes xcam and scanadf.
 
 %if %debug
 export DONT_STRIP=1
-CFLAGS="`echo %optflags |sed -e 's/-O3/-g/'`" CXXFLAGS="`echo %optflags |sed -e 's/-O3/-g/'`" \
+CFLAGS="`echo %optflags |perl -pi -e 's,-O3,-g,g'`" CXXFLAGS="`echo %optflags |perl -pi -e 's,-O3,-g,g'`" \
 %endif
 %configure
 perl -pi -e 's#,-rpath,/usr/lib##' src/Makefile #yves 1.0.5-4mdk
@@ -54,30 +54,40 @@ export DONT_STRIP=1
 %makeinstall
 
 # menu icons
-mkdir -p %{buildroot}/{%{_miconsdir},%{_liconsdir},%{_menudir}}
-install -m 0644 %SOURCE1 %{buildroot}/%{_miconsdir}/sane-frontends.png
-install -m 0644 %SOURCE2 %{buildroot}/%{_iconsdir}/sane-frontends.png
-install -m 0644 %SOURCE3 %{buildroot}/%{_liconsdir}/sane-frontends.png
+mkdir -p %{buildroot}%{_iconsdir}/hicolor/{16x16,32x32,48x48}/apps
+install -m 0644 %SOURCE1 %{buildroot}/%{_iconsdir}/hicolor/16x16/apps/sane-frontends.png
+install -m 0644 %SOURCE2 %{buildroot}/%{_iconsdir}/hicolor/32x32/apps/sane-frontends.png
+install -m 0644 %SOURCE3 %{buildroot}/%{_iconsdir}/hicolor/48x48/apps/sane-frontends.png
 
-# menu entries
-cat > %buildroot/%{_menudir}/sane-frontends << EOF
-?package(%{name}): \
-command="%{_bindir}/xscanimage" \
-icon="sane-frontends.png" \
-needs="X11" \
-section="Multimedia/Graphics" \
-title="XScanImage" \
-longtitle="XScanImage is a simple frontend for the SANE scanning system"
-?package(%{name}): \
-command="%{_bindir}/xcam" \
-icon="sane-frontends.png" \
-needs="X11" \
-section="Multimedia/Graphics" \
-title="XCam" \
-longtitle="XCam is a SANE-based frontend for webcams"
+mkdir -p %{buildroot}%{_datadir}/applications
+cat > %{buildroot}%{_datadir}/applications/mandriva-xscanimage.desktop <<EOF
+[Desktop Entry]
+Encoding=UTF-8
+Name=XScanImage
+Comment=A simple frontend for the SANE scanning system
+Exec=%{_bindir}/xscanimage
+Icon=%{name}
+Terminal=false
+Type=Application
+StartupNotify=true
+MimeType=foo/bar;foo2/bar2;
+Categories=GTK;Graphics;Scanning;
 EOF
 
-
+mkdir -p %{buildroot}%{_datadir}/applications
+cat > %{buildroot}%{_datadir}/applications/mandriva-xcam.desktop <<EOF
+[Desktop Entry]
+Encoding=UTF-8
+Name=XCam
+Comment=A SANE-based frontend for webcams
+Exec=%{_bindir}/xcam
+Icon=%{name}
+Terminal=false
+Type=Application
+StartupNotify=true
+MimeType=foo/bar;foo2/bar2;
+Categories=GTK;AudioVideo;Video;
+EOF
 
 %post
 %update_menus
@@ -111,12 +121,10 @@ rm -R $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,755)
-%doc COPYING INSTALL NEWS README AUTHORS
+%doc INSTALL NEWS README AUTHORS
 %{_bindir}/*
 #config(noreplace) %{_datadir}/sane/sane-style.rc
 %{_datadir}/sane/sane-style.rc
 %{_mandir}/man1/*
-%{_menudir}/*
-%{_iconsdir}/*.png
-%{_iconsdir}/*/*.png
-
+%{_datadir}/applications/*.desktop
+%{_iconsdir}/hicolor/*/apps/*.png
