@@ -23,7 +23,6 @@ Buildrequires:	libjpeg-devel
 Buildrequires:	libsane-devel >= %{version}
 Buildrequires:	libusb-devel
 Requires: 	gimp >= 2.0, sane >= %{version}
-Buildroot: 	%{_tmppath}/%{name}-%{version}-root
 
 %description
 This is the xscanimage program, used to scan images using SANE, either
