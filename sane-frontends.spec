@@ -1,6 +1,5 @@
 %define name 	sane-frontends
 %define version 1.0.14
-%define release %mkrel 4
 %define beta    %nil
 #-beta1
 
@@ -9,7 +8,7 @@
 
 Name:           %{name}
 Version:        %{version}
-Release:        %{release}
+Release:        %mkrel 5
 Summary: 	Graphical frontend to SANE
 URL:       	http://www.mostang.com/sane/
 Source:    	ftp://ftp.sane-project.org/pub/sane/sane-frontends-%{version}/%{name}-%{version}%{beta}.tar.bz2
