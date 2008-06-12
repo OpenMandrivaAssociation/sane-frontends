@@ -89,7 +89,9 @@ Categories=GTK;AudioVideo;Video;
 EOF
 
 %post
+%if %mdkversion < 200900
 %update_menus
+%endif
 if [ -d %{_libdir}/gimp ]; then
   GIMPDIR=`ls -d %{_libdir}/gimp/[012]*`
   [ -z "$GIMPDIR" ] && exit 0
@@ -111,8 +113,10 @@ if [ $1 = 0 ]; then
   fi
 fi
 
+%if %mdkversion < 200900
 %postun
 %update_menus
+%endif
 
 
 %clean
