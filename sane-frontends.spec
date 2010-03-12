@@ -8,7 +8,7 @@
 
 Name:           %{name}
 Version:        %{version}
-Release:        %mkrel 8
+Release:        %mkrel 9
 Summary: 	Graphical frontend to SANE
 URL:       	http://www.mostang.com/sane/
 Source:    	ftp://ftp.sane-project.org/pub/sane/sane-frontends-%{version}/%{name}-%{version}%{beta}.tar.bz2
@@ -83,7 +83,6 @@ Icon=%{name}
 Terminal=false
 Type=Application
 StartupNotify=true
-MimeType=foo/bar;foo2/bar2;
 Categories=GTK;AudioVideo;Video;
 EOF
 
