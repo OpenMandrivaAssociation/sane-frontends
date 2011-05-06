@@ -8,7 +8,7 @@
 
 Name:           %{name}
 Version:        %{version}
-Release:        %mkrel 10
+Release:        %mkrel 11
 Summary: 	Graphical frontend to SANE
 URL:       	http://www.mostang.com/sane/
 Source:    	ftp://ftp.sane-project.org/pub/sane/sane-frontends-%{version}/%{name}-%{version}%{beta}.tar.bz2
