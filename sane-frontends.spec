@@ -45,7 +45,7 @@ perl -p -i -e "s|\/\* #undef HAVE_STPCPY \*\/|#define HAVE_STPCPY 1|" include/sa
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %if %debug
 export DONT_STRIP=1
 %endif
@@ -118,7 +118,7 @@ fi
 
 
 %clean
-rm -R $RPM_BUILD_ROOT
+rm -R %{buildroot}
 
 %files
 %defattr(-,root,root,755)
