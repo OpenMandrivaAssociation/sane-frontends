@@ -1,0 +1,26 @@
+From 3f10927be1ce172819a3ed38e73d9234d3ea8d0d Mon Sep 17 00:00:00 2001
+From: Pascal Terjan <pterjan@google.com>
+Date: Thu, 19 Apr 2012 19:12:28 +0000
+Subject: [PATCH] Avoid a segfault when failing to open the device
+
+---
+ src/xcam.c |    3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/src/xcam.c b/src/xcam.c
+index 69cf178..4512380 100644
+--- a/src/xcam.c
++++ b/src/xcam.c
+@@ -1789,7 +1789,8 @@ main (int argc, char **argv)
+   if (device[0])
+     {
+       switch_device (device[0]);
+-      load_defaults (1);
++      if (dialog)
++        load_defaults (1);
+     }
+   else
+     {
+-- 
+1.7.10
+
