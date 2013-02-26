@@ -19,11 +19,10 @@ Patch0:		sane-frontends-1.0.14-segfault.patch
 License: 	GPLv2+
 Group:		Graphics
 BuildRequires:	pkgconfig(gimp-2.0)
-Buildrequires:	libjpeg-devel 
+Buildrequires:	jpeg-devel 
 Buildrequires:	libsane-devel >= %{version}
 Buildrequires:	libusb-devel
 Requires: 	sane >= %{version}
-Buildroot: 	%{_tmppath}/%{name}-%{version}-root
 
 %description
 This is the xscanimage program, used to scan images using SANE, either
@@ -116,11 +115,11 @@ EOF
 + Revision: 607508
 - rebuild
 
-* Fri Mar 12 2010 Nicolas Lécureuil <nlecureuil@mandriva.com> 1.0.14-9mdv2010.1
+* Fri Mar 12 2010 Nicolas LÃ©cureuil <nlecureuil@mandriva.com> 1.0.14-9mdv2010.1
 + Revision: 518366
 - Remove wrong mimetypes
 
-* Fri Mar 12 2010 Nicolas Lécureuil <nlecureuil@mandriva.com> 1.0.14-8mdv2010.1
+* Fri Mar 12 2010 Nicolas LÃ©cureuil <nlecureuil@mandriva.com> 1.0.14-8mdv2010.1
 + Revision: 518365
 - Remove wrong mimetypes
 
@@ -181,7 +180,7 @@ EOF
 * Fri Aug 22 2003 Damien Chaumette <dchaumette@mandrakesoft.com> 1.0.11-1mdk
 - Updated to version 1.0.11
 
-* Fri Jul 25 2003 Per �yvind Karlsen <peroyvind@sintrax.net> 1.0.10-2mdk
+* Fri Jul 25 2003 Per Øyvind Karlsen <peroyvind@sintrax.net> 1.0.10-2mdk
 - rebuild
 - rm -rf $RPM_BUILD_ROOT at the beginning of %%install
 
