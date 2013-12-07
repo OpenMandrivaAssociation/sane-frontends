@@ -8,7 +8,7 @@
 
 Name:           %{name}
 Version:        %{version}
-Release:        15
+Release:        16
 Summary: 	Graphical frontend to SANE
 URL:       	http://www.mostang.com/sane/
 Source:    	ftp://ftp.sane-project.org/pub/sane/sane-frontends-%{version}/%{name}-%{version}%{beta}.tar.bz2
