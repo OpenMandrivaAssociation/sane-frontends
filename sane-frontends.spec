@@ -20,7 +20,7 @@ License: 	GPLv2+
 Group:		Graphics
 BuildRequires:	pkgconfig(gimp-2.0)
 Buildrequires:	jpeg-devel 
-Buildrequires:	libsane-devel >= %{version}
+Buildrequires:	pkgconfig(sane-backends)
 Buildrequires:	pkgconfig(libusb-1.0)
 Requires: 	sane >= %{version}
 
