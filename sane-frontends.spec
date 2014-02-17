@@ -19,9 +19,9 @@ Patch0:		sane-frontends-1.0.14-segfault.patch
 License: 	GPLv2+
 Group:		Graphics
 BuildRequires:	pkgconfig(gimp-2.0)
-Buildrequires:	jpeg-devel 
-Buildrequires:	libsane-devel >= %{version}
-Buildrequires:  pkgconfig(libusb-1.0)
+BuildRequires:	jpeg-devel 
+BuildRequires:	pkgconfig(sane-backends)
+BuildRequires:  pkgconfig(libusb-1.0)
 Requires: 	sane >= %{version}
 
 %description
