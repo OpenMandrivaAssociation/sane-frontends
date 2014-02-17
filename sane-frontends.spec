@@ -21,7 +21,7 @@ Group:		Graphics
 BuildRequires:	pkgconfig(gimp-2.0)
 Buildrequires:	jpeg-devel 
 Buildrequires:	libsane-devel >= %{version}
-Buildrequires:	libusb-devel
+Buildrequires:	pkgconfig(libusb-1.0)
 Requires: 	sane >= %{version}
 
 %description
