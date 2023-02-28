@@ -1,16 +1,14 @@
-%define name 	sane-frontends
-%define version 1.0.14
 %define beta    %nil
 #-beta1
 
 # Enable debug mode
 %define debug 0
 
-Name:           %{name}
-Version:        %{version}
-Release:        25
+Name:           sane-frontends
+Version:        1.0.14
+Release:        26
 Summary: 	Graphical frontend to SANE
-URL:       	http://www.mostang.com/sane/
+URL:       	https://sane-project.org/
 Source:    	ftp://ftp.sane-project.org/pub/sane/sane-frontends-%{version}/%{name}-%{version}%{beta}.tar.bz2
 Source1:	sane-frontends16.png
 Source2:	sane-frontends32.png
