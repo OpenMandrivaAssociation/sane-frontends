@@ -6,7 +6,7 @@
 
 Name:           sane-frontends
 Version:        1.0.14
-Release:        26
+Release:        27
 Summary: 	Graphical frontend to SANE
 URL:       	https://sane-project.org/
 Source:    	ftp://ftp.sane-project.org/pub/sane/sane-frontends-%{version}/%{name}-%{version}%{beta}.tar.bz2
